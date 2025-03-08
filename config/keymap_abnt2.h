@@ -62,7 +62,7 @@
 #define BR_L     L    // L
 #define BR_CEDIL SEMI // Ç
 #define BR_TILDE SQT  // ~ (dead)
-#define BR_RBKT  STAR // ]
+#define BR_RBKT  BSLH // ]
 
 // *4*
 #define BR_BSLH  STAR  // (backslash)
