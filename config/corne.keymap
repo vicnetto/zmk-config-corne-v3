@@ -7,6 +7,12 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
+#include "keymap_abnt2.h"
+
+// Layers
+#define L_DEFAULT 0
+#define L_LOWER   1
+#define L_RAISE   2
 
 / {
         keymap {
@@ -14,15 +20,15 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-// | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | SHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
+// |   TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
+// |   ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | LSHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
                         bindings = <
-   &kp TAB   &kp Q &kp W &kp E &kp R &kp T       &kp Y &kp U  &kp I     &kp O   &kp P    &kp LBKT
-   &kp ESC   &kp A &kp S &kp D &kp F &kp G       &kp H &kp J  &kp K     &kp L   &kp SEMI &kp SQT
-   &kp LSHFT &kp Z &kp X &kp C &kp V &kp B       &kp N &kp M  &kp COMMA &kp DOT &kp FSLH &kp ESC
-                  &kp LCTRL &kp LGUI &kp SPACE   &kp RET &kp BSPC &kp LALT
+   &kp TAB   &kp BR_Q &kp BR_W &kp BR_E &kp BR_R &kp BR_T       &kp BR_Y &kp BR_U  &kp BR_I     &kp BR_O   &kp BR_P     &kp BR_ACUTE
+   &kp ESC   &kp BR_A &kp BR_S &kp BR_D &kp BR_F &kp BR_G       &kp BR_H &kp BR_J  &kp BR_K     &kp BR_L   &kp BR_CEDIL &kp BR_TILDE
+   &kp LSHFT &kp BR_Z &kp BR_X &kp BR_C &kp BR_V &kp BR_B       &kp BR_N &kp BR_M  &kp BR_COMMA &kp BR_DOT &kp BR_SEMI  &kp BR_FLSH
+                             &kp LCTRL &kp LGUI &kp SPACE       &kp RET &kp BSPC &kp LALT
                         >;
                 };
                 lower_layer {
