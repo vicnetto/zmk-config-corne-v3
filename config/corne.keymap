@@ -33,10 +33,10 @@
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// | TAB   |  1  |  2  |  3  |  4  |  5  |   | HOME | PG_DN | PG_UP | END   |  0  | BSPC |
-// | ESC   |  6  |  7  |  8  |  9  |  0  |   | LEFT | DOWN  | UP    | RIGHT |     |      |
-// | LSHFT |  (  |  -  |  +  |  )  |  .  |   |     |     |     |     |     |      |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// | ↓ |  1  |  2  |  3  |  4  |  5  |   | HOME | PG_DN | PG_UP | END   |  0  | BSPC |
+// | ↓ |  6  |  7  |  8  |  9  |  0  |   | LEFT | DOWN  | UP    | RIGHT |     |      |
+// | ↓ |  (  |  -  |  +  |  )  |  .  |   |     |     |     |     |     |      |
+//  | ↓LCTRL | (LGUI) TAB | (L_LWR) SPACE |   | (L_RSE) RET | (LSHFT) BSPC  | LALT |
                         bindings = <
    &trans &kp BR_1    &kp BR_2     &kp BR_3    &kp BR_4    &kp BR_5         &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
    &trans &kp BR_6    &kp BR_7     &kp BR_8    &kp BR_9    &kp BR_0         &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
@@ -47,15 +47,15 @@
 
                 raise_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  | BSPC |
-// | CTRL |     |     |     |     |     |   |  -  |  =  |  [  |  ]  |  \  |  `   |
-// | SHFT |     |     |     |     |     |   |  _  |  +  |  {  |  }  | "|" |  ~   |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// | ↓ |  ↓  |  "  |  !  |  $  |  %  |   |  @  |  &  |  *  |  '  |  ↓  |  ↓  |
+// | ↓ |  {  |  (  |  )  |  }  |  =  |   |  \  |  +  |  -  |  /  |  ↓  |  ↓  |
+// | ↓ |  ↓  |  [  |  ]  |  _  |  #  |   |  |  |  ↓  |  ↓  |  ↓  |  ↓  |  ↓  |
+//                       | ↓ | ↓ | ↓ |   | ↓ | ↓ | ↓ |
                         bindings = <
-   &kp  TAB  &kp EXCL &kp AT &kp HASH &kp DLLR &kp PRCNT   &kp CARET &kp AMPS  &kp ASTRK &kp LPAR &kp RPAR &kp BSPC
-   &kp LCTRL &trans   &trans &trans   &trans   &trans      &kp MINUS &kp EQUAL &kp LBKT  &kp RBKT &kp BSLH &kp GRAVE
-   &kp LSHFT &trans   &trans &trans   &trans   &trans      &kp UNDER &kp PLUS  &kp LBRC  &kp RBRC &kp PIPE &kp TILDE
-                             &kp LGUI &trans   &kp SPACE   &kp RET   &trans    &kp RALT
+   &trans &trans      &kp BR_DQTL &kp BR_EXCL &kp BR_DLLR  &kp BR_PRCNT       &kp BT_AT   &kp BT_AMPS &kp BR_STAR  &kp BR_SQT  &trans &trans
+   &trans &kp BR_LBRC &kp BR_LPAR &kp BR_RPAR &kp BR_RBRC  &kp BR_EQUAL       &kp BR_BSLH &kp BR_PLUS &kp BR_MINUS &kp BR_FSLH &trans &trans
+   &trans &trans      &kp BR_LBKT &kp BR_RBKT &kp BR_UNDER &kp BR_HASH        &kp BR_PIPE &trans      &trans       &trans      &trans &trans
+                                  &trans      &trans       &trans             &trans      &trans      &trans
                         >;
                 };
         };
