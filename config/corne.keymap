@@ -10,9 +10,9 @@
 #include "keymap_abnt2.h"
 
 // Layers
-#define L_DEFAULT 0
-#define L_LOWER   1
-#define L_RAISE   2
+#define L_DFT 0
+#define L_LWR   1
+#define L_RSE   2
 
 / {
         keymap {
@@ -23,12 +23,12 @@
 // |   TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
 // |   ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | LSHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//                    | GUI | LWR | SPC |   | ENT | RSE  | ALT |
+//  | LCTRL | (LGUI) TAB | (L_LWR) SPACE |   | (L_RSE) RET | (LSHFT) BSPC  | LALT |
                         bindings = <
    &kp TAB   &kp BR_Q &kp BR_W &kp BR_E &kp BR_R &kp BR_T       &kp BR_Y &kp BR_U  &kp BR_I     &kp BR_O   &kp BR_P     &kp BR_ACUTE
    &kp ESC   &kp BR_A &kp BR_S &kp BR_D &kp BR_F &kp BR_G       &kp BR_H &kp BR_J  &kp BR_K     &kp BR_L   &kp BR_CEDIL &kp BR_TILDE
    &kp LSHFT &kp BR_Z &kp BR_X &kp BR_C &kp BR_V &kp BR_B       &kp BR_N &kp BR_M  &kp BR_COMMA &kp BR_DOT &kp BR_SEMI  &kp BR_FSLH
-                             &kp LCTRL &kp LGUI &kp SPACE       &kp RET &kp BSPC &kp LALT
+                   &kp LCTRL &mt LGUI TAB &lt L_LWR SPACE       &lt L_RSE RET &mt BSPC LSHFT &kp LALT
                         >;
                 };
                 lower_layer {
