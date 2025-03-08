@@ -35,12 +35,12 @@
 // -----------------------------------------------------------------------------------------
 // |   |  1  |  2  |  3  |  4  |  5  |   | HOME | PG_DN | PG_UP | END   |  0  | BSPC |
 // |   |  6  |  7  |  8  |  9  |  0  |   | LEFT | DOWN  | UP    | RIGHT |     |      |
-// |   |  (  |  -  |  +  |  )  |  .  |   |      |       |       |       |     |      |
+// |   |  (  |  -  |  +  |  )  |  .  |   |      | INS   | DEL   |       |     |      |
 //                 |     |     |     |   |      |       |       |
                         bindings = <
    &trans &kp BR_1    &kp BR_2     &kp BR_3    &kp BR_4    &kp BR_5         &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
    &trans &kp BR_6    &kp BR_7     &kp BR_8    &kp BR_9    &kp BR_0         &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
-   &trans &kp BR_LPAR &kp BR_MINUS &kp BR_PLUS &kp BR_RPAR &kp BR_DOT       &trans   &trans    &trans    &trans    &trans &trans
+   &trans &kp BR_LPAR &kp BR_MINUS &kp BR_PLUS &kp BR_RPAR &kp BR_DOT       &trans   &kp INS   &kp DEL   &trans    &trans &trans
                                    &trans      &trans      &trans           &trans   &trans    &trans
                         >;
                 };
