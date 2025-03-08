@@ -27,7 +27,7 @@
                         bindings = <
    &kp TAB   &kp BR_Q &kp BR_W &kp BR_E &kp BR_R &kp BR_T       &kp BR_Y &kp BR_U  &kp BR_I     &kp BR_O   &kp BR_P     &kp BR_ACUTE
    &kp ESC   &kp BR_A &kp BR_S &kp BR_D &kp BR_F &kp BR_G       &kp BR_H &kp BR_J  &kp BR_K     &kp BR_L   &kp BR_CEDIL &kp BR_TILDE
-   &kp LSHFT &kp BR_Z &kp BR_X &kp BR_C &kp BR_V &kp BR_B       &kp BR_N &kp BR_M  &kp BR_COMMA &kp BR_DOT &kp BR_SEMI  &kp BR_FLSH
+   &kp LSHFT &kp BR_Z &kp BR_X &kp BR_C &kp BR_V &kp BR_B       &kp BR_N &kp BR_M  &kp BR_COMMA &kp BR_DOT &kp BR_SEMI  &kp BR_FSLH
                              &kp LCTRL &kp LGUI &kp SPACE       &kp RET &kp BSPC &kp LALT
                         >;
                 };
