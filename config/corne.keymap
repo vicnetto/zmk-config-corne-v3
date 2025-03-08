@@ -20,8 +20,8 @@
 
                 default_layer {
 // -----------------------------------------------------------------------------------------
-// |   TAB |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-// |   ESC |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
+// | TAB   |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
+// | ESC   |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
 // | LSHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //  | LCTRL | (LGUI) TAB | (L_LWR) SPACE |   | (L_RSE) RET | (LSHFT) BSPC  | LALT |
                         bindings = <
@@ -33,15 +33,15 @@
                 };
                 lower_layer {
 // -----------------------------------------------------------------------------------------
-// |  TAB |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  | BSPC |
-// | BTCLR| BT1 | BT2 | BT3 | BT4 | BT5 |   | LFT | DWN |  UP | RGT |     |      |
-// | SHFT |     |     |     |     |     |   |     |     |     |     |     |      |
+// | TAB   |  1  |  2  |  3  |  4  |  5  |   | HOME | PG_DN | PG_UP | END   |  0  | BSPC |
+// | ESC   |  6  |  7  |  8  |  9  |  0  |   | LEFT | DOWN  | UP    | RIGHT |     |      |
+// | LSHFT |  (  |  -  |  +  |  )  |  .  |   |     |     |     |     |     |      |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &kp TAB    &kp N1       &kp N2       &kp N3       &kp N4       &kp N5         &kp N6   &kp N7   &kp N8 &kp N9    &kp N0 &kp BSPC
-   &bt BT_CLR &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4   &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &trans
-   &kp LSHFT  &trans       &trans       &trans       &trans       &trans         &trans   &trans   &trans &trans    &trans &trans
-                                    &kp LGUI     &trans       &kp SPACE      &kp RET  &trans   &kp RALT
+   &trans &kp BR_1    &kp BR_2     &kp BR_3    &kp BR_4    &kp BR_5         &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
+   &trans &kp BR_6    &kp BR_7     &kp BR_8    &kp BR_9    &kp BR_0         &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
+   &trans &kp BR_LPAR &kp BR_MINUS &kp BR_PLUS &kp BR_RPAR &kp BR_DOT       &trans   &trans    &trans    &trans    &trans &trans
+                                   &trans      &trans      &trans           &trans   &trans    &trans
                         >;
                 };
 
