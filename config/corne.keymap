@@ -89,7 +89,7 @@
    &kp TAB   &kp BR_Q         &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T       &kp BR_Y &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P     &kp BR_ACUTE
    &kp ESC   &hrml LSHFT BR_A &hrml LALT BR_S &hrml LCTRL BR_D &hrml LGUI BR_F &kp BR_G       &kp BR_H &hrmr RGUI BR_J  &hrmr RCTRL BR_K &hrmr RALT BR_L &hrml RSHFT BR_CEDIL &kp BR_TILDE
    &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B       &kp BR_N &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI  &mt LALT BR_FSLH
-                                             &kp INS &kp TAB &lthp L_SYM SPACE     &lthp L_NMB RET &mthp LSHFT BSPC     &lthp L_FUN DEL
+                                             &kp INS &kp TAB &lt L_SYM SPACE   &lt L_NMB RET &mthp LSHFT BSPC     &lt L_FUN DEL
                         >;
                 };
                 number_layer {
