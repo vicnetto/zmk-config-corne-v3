@@ -39,6 +39,7 @@
                         hold-trigger-key-positions = <RIGHT_POSITIONS>;
                         hold-trigger-on-release; // delay positional check until key release
                         bindings = <&kp>, <&kp>;
+                        // global-quick-tap-ms = <75>
                 };
 
                 hrmr: home_row_mods_right {
@@ -51,6 +52,7 @@
                         hold-trigger-key-positions = <LEFT_POSITIONS>;
                         hold-trigger-on-release; // delay positional check until key release
                         bindings = <&kp>, <&kp>;
+                        // global-quick-tap-ms = <75>
                 };
 
                 mthp: mod_tap_hold_preferred {
@@ -84,23 +86,23 @@
 // | LSHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
 //  | LCTRL | (LGUI) TAB | (L_LWR) SPACE |   | (L_RSE) RET | (LSHFT) BSPC  | LALT |
                         bindings = <
-   &kp TAB   &kp BR_Q &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T       &kp BR_Y &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P     &kp BR_ACUTE
+   &kp TAB   &kp BR_Q         &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T       &kp BR_Y &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P     &kp BR_ACUTE
    &kp ESC   &hrml LSHFT BR_A &hrml LALT BR_S &hrml LCTRL BR_D &hrml LGUI BR_F &kp BR_G       &kp BR_H &hrmr RGUI BR_J  &hrmr RCTRL BR_K &hrmr RALT BR_L &hrml RSHFT BR_CEDIL &kp BR_TILDE
-   &kp LSHFT &kp BR_Z &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B       &kp BR_N &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI  &mt LALT BR_FSLH
-                                       &kp LCTRL &mthp LGUI TAB &lthp L_SYM SPACE     &lthp L_NMB RET &mthp LSHFT BSPC &mo L_FUN
+   &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B       &kp BR_N &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI  &mt LALT BR_FSLH
+                                             &kp LCTRL &mthp LGUI TAB &lthp L_SYM SPACE     &lthp L_NMB RET &mthp LSHFT BSPC &mo L_FUN
                         >;
                 };
                 number_layer {
 // -----------------------------------------------------------------------------------
-// |   |  1  |  2  |  3  |  4  |  5  |   | HOME | PG_DN | PG_UP | END   |     |      |
-// |   |  6  |  7  |  8  |  9  |  0  |   | LEFT | DOWN  | UP    | RIGHT |     |      |
-// |   |  (  |  -  |  +  |  )  |  .  |   |      | INS   | DEL   |       |     |      |
-//                 |     |     |     |   |      |       |       |
+// |   |  +  |  7  |  8  |  9  |  -  |   | HOME | PG_DN | PG_UP | END   |     |      |
+// |   |  (  |  4  |  5  |  6  |  )  |   | LEFT | DOWN  | UP    | RIGHT |     |      |
+// |   |  *  |  1  |  2  |  3  |  /  |   |      | INS   | DEL   |       |     |      |
+//                 |  0  |     |     |   |      |       |       |
                         bindings = <
-   &trans &kp BR_1    &kp BR_2     &kp BR_3     &kp BR_4    &kp BR_5         &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
-   &trans &hrml LSHFT BR_6    &hrml LALT BR_7     &hrml LCTRL BR_8     &hrml LGUI BR_9    &kp BR_0         &kp LEFT &hrmr RGUI DOWN  &hrmr RCTRL UP  &hrmr RALT RIGHT &kp RSHFT &trans
-   &trans &kp BR_LPAR &kp BR_PLUS  &kp BR_MINUS &kp BR_RPAR &kp BR_DOT       &trans   &kp INS   &kp DEL   &trans    &trans &trans
-                                   &trans       &trans      &trans           &trans   &trans    &trans
+   &trans &kp BR_PLUS         &kp BR_7        &kp BR_8         &kp BR_9        &kp BR_MINUS      &kp HOME &kp PG_DN       &kp PG_UP      &kp END          &trans    &trans
+   &trans &hrml LSHFT BR_LPAR &hrml LALT BR_4 &hrml LCTRL BR_5 &hrml LGUI BR_6 &kp BR_RPAR       &kp LEFT &hrmr RGUI DOWN &hrmr RCTRL UP &hrmr RALT RIGHT &kp RSHFT &trans
+   &trans &kp BR_STAR         &kp BR_1        &kp BR_2         &kp BR_3        &kp BR_FSLH       &trans   &kp INS         &kp DEL        &trans           &trans    &trans
+                                              &mthp LCTRL BR_0 &trans          &trans            &trans   &trans    &trans
                         >;
                 };
 
@@ -120,15 +122,15 @@
 
                 function_layer {
 // -----------------------------------------------------------------------------------------------------
-// |   |  F1  |  F2  |  F3  | F4   | F5   |   | BT(0) | BT(1)  | BT(2)    | BT(3)    | BT(4) | BT(CLR) |
-// |   |  F6  |  F7  |  F8  | F9   | F10  |   |       | PREV   | PP       | NEXT     |       |         |
-// |   |      |      |      | F11  | F12  |   |       | VOL-UP | VOL-MUTE | VOL-DOWN |       |         |
-//                   |      |      |      |   |       |        |          |
+// |   |      |  F7  |  F8  | F9  |  F10  |   | BT(0) | BT(1)  | BT(2)    | BT(3)    | BT(4) | BT(CLR) |
+// |   |      |  F4  |  F5  | F6  |  F11  |   |       | PREV   | PP       | NEXT     |       |         |
+// |   |      |  F1  |  F2  | F3  |  F12  |   |       | VOL-UP | VOL-MUTE | VOL-DOWN |       |         |
+//                   |      |     |       |   |       |        |          |
                         bindings = <
-   &trans &kp F1 &kp F2 &kp F3 &kp F4  &kp F5        &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_SEL 4 &bt BT_CLR
-   &trans &kp F6 &kp F7 &kp F8 &kp F9  &kp F10       &trans       &hrmr RGUI C_PREV     &hrmr RCTRL C_PP     &hrmr RALT C_NEXT    &kp RSHFT       &trans
-   &trans &trans &trans &trans &kp F11 &kp F12       &trans       &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP  &trans       &trans
-                        &trans  &trans  &trans       &trans       &trans         &trans
+   &trans &trans &kp F7 &kp F8 &kp F9 &kp F10       &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3  &bt BT_SEL 4 &bt BT_CLR
+   &trans &trans &kp F4 &kp F5 &kp F6 &kp F11       &trans       &hrmr RGUI C_PREV     &hrmr RCTRL C_PP     &hrmr RALT C_NEXT    &kp RSHFT       &trans
+   &trans &trans &kp F1 &kp F2 &kp F3 &kp F12       &trans       &kp C_VOL_DN   &kp C_MUTE   &kp C_VOL_UP  &trans       &trans
+                        &trans  &trans  &trans      &trans       &trans         &trans
                         >;
                 };
         };
