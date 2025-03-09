@@ -78,7 +78,7 @@
 //                 |     |     |     |   |      |       |       |
                         bindings = <
    &trans &kp BR_1    &kp BR_2     &kp BR_3     &kp BR_4    &kp BR_5         &kp HOME &kp PG_DN &kp PG_UP &kp END   &trans &trans
-   &trans &kp BR_6    &kp BR_7     &kp BR_8     &kp BR_9    &kp BR_0         &kp LEFT &kp DOWN  &kp UP    &kp RIGHT &trans &trans
+   &trans &kp BR_6    &hrml LALT BR_7     &hrml LCTRL BR_8     &hrml LGUI BR_9    &kp BR_0         &kp LEFT &hrmr RGUI DOWN  &hrmr RCTRL UP    &hrmr RALT RIGHT &trans &trans
    &trans &kp BR_LPAR &kp BR_PLUS  &kp BR_MINUS &kp BR_RPAR &kp BR_DOT       &trans   &kp INS   &kp DEL   &trans    &trans &trans
                                    &trans       &trans      &trans           &trans   &trans    &trans
                         >;
@@ -92,7 +92,7 @@
 //                 |     |     |     |   |     |     |     |
                         bindings = <
    &trans &trans      &kp BR_DQT  &kp BR_EXCL &kp BR_DLLR  &kp BR_PRCNT       &kp BR_AT   &kp BR_AMPS &kp BR_STAR  &kp BR_SQT  &trans &trans
-   &trans &kp BR_LBRC &kp BR_LPAR &kp BR_RPAR &kp BR_RBRC  &kp BR_EQUAL       &kp BR_BSLH &kp BR_PLUS &kp BR_MINUS &kp BR_FSLH &trans &trans
+   &trans &kp BR_LBRC &hrml LALT BR_LPAR &hrml LCTRL BR_RPAR &hrml LGUI BR_RBRC  &kp BR_EQUAL       &kp BR_BSLH &hrmr RGUI BR_PLUS &hrmr RCTRL BR_MINUS &hrmr RALT BR_FSLH &trans &trans
    &trans &trans      &kp BR_LBKT &kp BR_RBKT &kp BR_UNDER &kp BR_HASH        &kp BR_PIPE &trans      &trans       &trans      &trans &trans
                                   &trans      &trans       &trans             &trans      &trans      &trans
                         >;
