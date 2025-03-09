@@ -33,7 +33,7 @@
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <150>;
+                        quick-tap-ms = <200>;
                         flavor = "balanced";
                         require-prior-idle-ms = <150>;
                         hold-trigger-key-positions = <RIGHT_POSITIONS>;
@@ -57,7 +57,7 @@
                         compatible = "zmk,behavior-hold-tap";
                         #binding-cells = <2>;
                         tapping-term-ms = <200>;
-                        quick-tap-ms = <200>;
+                        quick-tap-ms = <150>;
                         // require-prior-idle-ms = <125>;
                         flavor = "hold-preferred";
                         bindings = <&kp>, <&kp>;
