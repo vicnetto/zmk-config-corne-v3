@@ -94,15 +94,15 @@
                 };
                 number_layer {
 // -----------------------------------------------------------------------------------
-// |   |  +  |  7  |  8  |  9  |  -  |   | HOME | PG_DN | PG_UP | END   |     |      |
-// |   |  (  |  4  |  5  |  6  |  )  |   | LEFT | DOWN  | UP    | RIGHT |     |      |
-// |   |  *  |  1  |  2  |  3  |  /  |   |      | INS   | DEL   |       |     |      |
-//                 |  0  |     |     |   |      |       |       |
+// |   |  +  |  7  |  8  |  9  |  -  |   | HOME  | PG_DN | PG_UP | END   |     |      |
+// |   |  (  |  4  |  5  |  6  |  )  |   | LEFT  | DOWN  | UP    | RIGHT |     |      |
+// |   |  *  |  1  |  2  |  3  |  /  |   | PSCRN | INS   | DEL   |       |     |      |
+//                 |  0  |     |     |   |       |       |       |
                         bindings = <
-   &trans &kp BR_PLUS         &kp BR_7        &kp BR_8         &kp BR_9        &kp BR_MINUS      &kp HOME &kp PG_DN       &kp PG_UP      &kp END          &trans    &trans
-   &trans &hrml LSHFT BR_LPAR &hrml LALT BR_4 &hrml LCTRL BR_5 &hrml LGUI BR_6 &kp BR_RPAR       &kp LEFT &hrmr RGUI DOWN &hrmr RCTRL UP &hrmr RALT RIGHT &kp RSHFT &trans
-   &trans &kp BR_STAR         &kp BR_1        &kp BR_2         &kp BR_3        &kp BR_FSLH       &trans   &kp INS         &kp DEL        &trans           &trans    &trans
-                                              &mthp LCTRL BR_0 &trans          &trans            &trans   &trans    &trans
+   &trans &kp BR_PLUS         &kp BR_7        &kp BR_8         &kp BR_9        &kp BR_MINUS      &kp HOME  &kp PG_DN       &kp PG_UP      &kp END          &trans    &trans
+   &trans &hrml LSHFT BR_LPAR &hrml LALT BR_4 &hrml LCTRL BR_5 &hrml LGUI BR_6 &kp BR_RPAR       &kp LEFT  &hrmr RGUI DOWN &hrmr RCTRL UP &hrmr RALT RIGHT &kp RSHFT &trans
+   &trans &kp BR_STAR         &kp BR_1        &kp BR_2         &kp BR_3        &kp BR_FSLH       &kp PSCRN &kp INS         &kp DEL        &trans           &trans    &trans
+                                              &mthp LCTRL BR_0 &trans          &trans            &trans    &trans          &trans
                         >;
                 };
 
