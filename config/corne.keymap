@@ -63,7 +63,17 @@
                         // require-prior-idle-ms = <125>;
                         flavor = "hold-preferred";
                         bindings = <&kp>, <&kp>;
-               };
+                };
+
+                mtb: mod_tap_balanced {
+                        compatible = "zmk,behavior-hold-tap";
+                        #binding-cells = <2>;
+                        tapping-term-ms = <200>;
+                        quick-tap-ms = <150>;
+                        // require-prior-idle-ms = <125>;
+                        flavor = "balanced";
+                        bindings = <&kp>, <&kp>;
+                };
 
                 lthp: layer_tap_hold_preferred {
                         compatible = "zmk,behavior-hold-tap";
@@ -73,7 +83,7 @@
                         require-prior-idle-ms = <50>;
                         flavor = "hold-preferred";
                         bindings = <&mo>, <&kp>;
-               };
+                };
 
                 ltb: layer_tap_balanced {
                         compatible = "zmk,behavior-hold-tap";
@@ -83,7 +93,7 @@
                         require-prior-idle-ms = <50>;
                         flavor = "balanced";
                         bindings = <&mo>, <&kp>;
-               };
+                };
         };
 
         keymap {
@@ -99,7 +109,7 @@
    &kp TAB   &kp BR_Q         &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T       &kp BR_Y &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P     &kp BR_ACUTE
    &kp ESC   &hrml LSHFT BR_A &hrml LALT BR_S &hrml LCTRL BR_D &hrml LGUI BR_F &kp BR_G       &kp BR_H &hrmr RGUI BR_J  &hrmr RCTRL BR_K &hrmr RALT BR_L &hrml RSHFT BR_CEDIL &kp BR_TILDE
    &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B       &kp BR_N &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI  &mt LALT BR_FSLH
-                                             &kp INS &kp TAB &ltb L_SYM SPACE   &ltb L_NMB RET &mthp LSHFT BSPC     &ltb L_FUN DEL
+                                             &kp INS &kp TAB &ltb L_SYM SPACE  &ltb L_NMB RET &mtb LSHFT BSPC     &ltb L_FUN DEL
                         >;
                 };
                 number_layer {
