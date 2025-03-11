@@ -27,10 +27,6 @@
 #define L_SYM 2
 #define L_FUN 3
 
-&caps_word {
-    continue-list = <UNDERSCORE MINUS>;
-};
-
 / {
         combos {
                 compatible = "zmk,combos";
