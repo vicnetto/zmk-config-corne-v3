@@ -27,7 +27,20 @@
 #define L_SYM 2
 #define L_FUN 3
 
+&caps_word {
+    continue-list = <UNDERSCORE MINUS>;
+};
+
 / {
+        combos {
+                compatible = "zmk,combos";
+                combo_caps_word {
+                        timeout-ms = <50>;
+                        key-positions = <13 22>;
+                        bindings = <&caps_word>;
+                };
+        };
+
         behaviors {
                 hrml: home_row_mods_left {
                         compatible = "zmk,behavior-hold-tap";
