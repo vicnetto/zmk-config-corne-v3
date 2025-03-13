@@ -12,7 +12,8 @@
 // Took from: sukantamaikap/zmk-config-corne
 #define LEFT_POSITIONS  0 1 2 3 4 5 12 13 14 15 16 17 24 25 26 27 28 29 36 37 38
 #define RIGHT_POSITIONS 6 7 8 9 10 11 18 19 20 21 22 23 30 31 32 33 34 35 39 40 41
-/* Key Positions
+
+/* Key Positions:
 ╭────────────────────────╮ ╭────────────────────────╮
 │  0   1   2   3   4   5 │ │  6   7   8   9  10  11 │
 │ 12  13  14  15  16  17 │ │ 18  19  20  21  22  23 │
@@ -28,139 +29,182 @@
 #define L_FUN 3
 
 / {
-        combos {
-                compatible = "zmk,combos";
-                combo_caps_word {
-                        timeout-ms = <50>;
-                        key-positions = <13 22>;
-                        bindings = <&caps_word>;
-                };
+    combos {
+        compatible = "zmk,combos";
+
+        combo_caps_word {
+            timeout-ms = <50>;
+            key-positions = <13 22>;
+            bindings = <&caps_word>;
+        };
+    };
+    
+    behaviors {
+        hrml: home_row_mods_left {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            require-prior-idle-ms = <100>;
+            hold-trigger-key-positions = <RIGHT_POSITIONS>;
+            hold-trigger-on-release; // delay positional check until key release
+            bindings = <&kp>, <&kp>;
+            // global-quick-tap-ms = <75>
         };
 
-        behaviors {
-                hrml: home_row_mods_left {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <175>;
-                        flavor = "balanced";
-                        require-prior-idle-ms = <100>;
-                        hold-trigger-key-positions = <RIGHT_POSITIONS>;
-                        hold-trigger-on-release; // delay positional check until key release
-                        bindings = <&kp>, <&kp>;
-                        // global-quick-tap-ms = <75>
-                };
-
-                hrmr: home_row_mods_right {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <175>;
-                        flavor = "balanced";
-                        require-prior-idle-ms = <100>;
-                        hold-trigger-key-positions = <LEFT_POSITIONS>;
-                        hold-trigger-on-release; // delay positional check until key release
-                        bindings = <&kp>, <&kp>;
-                        // global-quick-tap-ms = <75>
-                };
-
-                mthp: mod_tap_hold_preferred {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <150>;
-                        // require-prior-idle-ms = <125>;
-                        flavor = "hold-preferred";
-                        bindings = <&kp>, <&kp>;
-                };
-
-                mtb: mod_tap_balanced {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <150>;
-                        // require-prior-idle-ms = <125>;
-                        flavor = "balanced";
-                        bindings = <&kp>, <&kp>;
-                };
-
-                lthp: layer_tap_hold_preferred {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <150>;
-                        require-prior-idle-ms = <50>;
-                        flavor = "hold-preferred";
-                        bindings = <&mo>, <&kp>;
-                };
-
-                ltb: layer_tap_balanced {
-                        compatible = "zmk,behavior-hold-tap";
-                        #binding-cells = <2>;
-                        tapping-term-ms = <200>;
-                        quick-tap-ms = <150>;
-                        require-prior-idle-ms = <50>;
-                        flavor = "balanced";
-                        bindings = <&mo>, <&kp>;
-                };
+        hrmr: home_row_mods_right {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <175>;
+            flavor = "balanced";
+            require-prior-idle-ms = <100>;
+            hold-trigger-key-positions = <LEFT_POSITIONS>;
+            hold-trigger-on-release; // delay positional check until key release
+            bindings = <&kp>, <&kp>;
+            // global-quick-tap-ms = <75>
         };
 
-        keymap {
-                compatible = "zmk,keymap";
-
-                default_layer {
-// ---------------------------------------------------------------------------------
-// | TAB   |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  | BSPC |
-// | ESC   |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |  '   |
-// | LSHFT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | ESC  |
-//           | INS | TAB | (L_LWR) SPACE |   | (L_RSE) RET | (LSHFT) BSPC  | DEL |
-                        bindings = <
-   &kp TAB   &kp BR_Q         &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T       &kp BR_Y &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P     &kp BR_ACUTE
-   &kp ESC   &hrml LSHFT BR_A &hrml LALT BR_S &hrml LCTRL BR_D &hrml LGUI BR_F &kp BR_G       &kp BR_H &hrmr RGUI BR_J  &hrmr RCTRL BR_K &hrmr RALT BR_L &hrmr RSHFT BR_CEDIL &kp BR_TILDE
-   &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B       &kp BR_N &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI  &mt LALT BR_FSLH
-                                             &kp INS &kp TAB &ltb L_SYM SPACE  &ltb L_NMB RET &mtb LSHFT BSPC     &ltb L_FUN DEL
-                        >;
-                };
-                number_layer {
-// -----------------------------------------------------------------------------------
-// |   |  +  |  7  |  8  |  9  |  -  |   | HOME  | PG_DN | PG_UP | END   |     |      |
-// |   |  (  |  4  |  5  |  6  |  )  |   | LEFT  | DOWN  | UP    | RIGHT |     |      |
-// |   |  *  |  1  |  2  |  3  |  /  |   | PSCRN | INS   | DEL   |       |     |      |
-//                 |  0  |     |     |   |       |       |       |
-                        bindings = <
-   &trans &kp BR_PLUS         &kp BR_7        &kp BR_8         &kp BR_9        &kp BR_MINUS      &kp HOME  &kp PG_DN       &kp PG_UP      &kp END          &trans    &trans
-   &trans &hrml LSHFT BR_LPAR &hrml LALT BR_4 &hrml LCTRL BR_5 &hrml LGUI BR_6 &kp BR_RPAR       &kp LEFT  &hrmr RGUI DOWN &hrmr RCTRL UP &hrmr RALT RIGHT &kp RSHFT &trans
-   &trans &kp BR_STAR         &kp BR_1        &kp BR_2         &kp BR_3        &kp BR_FSLH       &kp PSCRN &kp INS         &kp DEL        &trans           &trans    &trans
-                                              &mthp LCTRL BR_0 &trans          &trans            &trans    &trans          &trans
-                        >;
-                };
-
-                symbol_layer {
-// ---------------------------------------------------------------------------
-// |   |     |  "  |  !  |  $  |  %  |   |  @  |  &  |  *  |  '  |     |     |
-// |   |  {  |  (  |  )  |  }  |  =  |   |  \  |  +  |  -  |  /  |     |     |
-// |   |     |  [  |  ]  |  _  |  #  |   |  |  |     |     |     |     |     |
-//                 |     |     |     |   |     |     |     |
-                        bindings = <
-   &trans &trans      &kp BR_DQT  &kp BR_EXCL &kp BR_DLLR  &kp BR_PRCNT       &kp BR_AT   &kp BR_AMPS &kp BR_STAR  &kp BR_SQT  &trans &trans
-   &trans &hrml LSHFT BR_LBRC &hrml LALT BR_LPAR &hrml LCTRL BR_RPAR &hrml LGUI BR_RBRC  &kp BR_EQUAL       &kp BR_BSLH &hrmr RGUI BR_PLUS &hrmr RCTRL BR_MINUS &hrmr RALT BR_FSLH &kp RSHFT &trans
-   &trans &trans      &kp BR_LBKT &kp BR_RBKT &kp BR_UNDER &kp BR_HASH        &kp BR_PIPE &trans      &trans       &trans      &trans &trans
-                                  &trans      &trans       &trans             &trans      &trans      &trans
-                        >;
-                };
-
-                function_layer {
-// -----------------------------------------------------------------------------------------------------
-// |   |      |  F7  |  F8  | F9  |  F10  |   | BT(0) | BT(1)  | BT(2)    | BT(3)  | BT(4) | BT(CLR) |
-// |   |      |  F4  |  F5  | F6  |  F11  |   |       | VOL-DN | VOL-MUTE | VOL-UP | RSHFT |         |
-// |   |      |  F1  |  F2  | F3  |  F12  |   |       | PREV   | PP       | NEXT   |       |         |
-//                   |      |     |       |   |       |        |          |
-                        bindings = <
-   &trans &trans     &kp F7        &kp F8         &kp F9        &kp F10       &bt BT_SEL 0 &bt BT_SEL 1        &bt BT_SEL 2       &bt BT_SEL 3        &bt BT_SEL 4 &bt BT_CLR
-   &trans &kp LSHIFT &hrml LALT F4 &hrml LCTRL F5 &hrml LGUI F6 &kp F11       &trans       &hrmr RGUI C_VOL_DN &hrmr RCTRL C_MUTE &hrmr RALT C_VOL_UP &kp RSHFT    &trans
-   &trans &trans     &kp F1        &kp F2         &kp F3        &kp F12       &trans       &kp C_PREV          &kp C_PP           &kp C_NEXT          &trans       &trans
-                                                   &trans &trans &trans       &trans &trans &trans
-                        >;
-                };
+        mthp: mod_tap_hold_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            // require-prior-idle-ms = <125>;
+            flavor = "hold-preferred";
+            bindings = <&kp>, <&kp>;
         };
+
+        mtb: mod_tap_balanced {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            // require-prior-idle-ms = <125>;
+            flavor = "balanced";
+            bindings = <&kp>, <&kp>;
+        };
+
+        lthp: layer_tap_hold_preferred {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <50>;
+            flavor = "hold-preferred";
+            bindings = <&mo>, <&kp>;
+        };
+
+        ltb: layer_tap_balanced {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            quick-tap-ms = <150>;
+            require-prior-idle-ms = <50>;
+            flavor = "balanced";
+            bindings = <&mo>, <&kp>;
+        };
+    };
+    
+    keymap {
+        compatible = "zmk,keymap";
+    
+        default_layer {
+            /*
+            * ┌───────┬───────┬───────┬───────┬───────┬───────┐         ┌───────┬───────┬───────┬───────┬───────┬───────┐
+            * │  TAB  │   Q   │   W   │   E   │   R   │   T   │         │   Y   │   U   │   I   │   O   │   P   │   ´   │
+            * │       │       │       │       │       │       │         │       │       │       │       │       │   `   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │  ESC  │   A   │   S   │   D   │   F   │   G   │         │   H   │   J   │   K   │   L   │   Ç   │   ~   │
+            * │       │ LSHFT │  LALT │ LCTRL │  LGUI │       │         │       │ RGUI  │ RCTRL │ RALT  │ RSHFT │   ^   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │ LSHFT │   Z   │   X   │   C   │   V   │   B   │         │   N   │   M   │   ,   │   .   │   ;   │   /   │
+            * │       │       │       │       │       │       │         │       │       │   <   │   >   │   :   │   ?   │
+            * └───────┴───────┴───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┴───────┴───────┘
+            *                         │  INS  │  TAB  │ SPACE │         │  RET  │ BSPC  │  DEL  │
+            *                         │       │       │ L_SYM │         │ L_NMB │       │ L_FUN │
+            *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
+            */
+    
+            bindings = <
+                &kp TAB   &kp BR_Q         &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T               &kp BR_Y       &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P             &kp BR_ACUTE
+                &kp ESC   &hrml LSHFT BR_A &hrml LALT BR_S &hrml LCTRL BR_D &hrml LGUI BR_F &kp BR_G               &kp BR_H       &hrmr RGUI BR_J  &hrmr RCTRL BR_K &hrmr RALT BR_L &hrmr RSHFT BR_CEDIL &kp BR_TILDE
+                &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B               &kp BR_N       &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI          &mt LALT BR_FSLH
+                                                           &kp INS          &kp TAB         &ltb L_SYM SPACE       &ltb L_NMB RET &mtb LSHFT BSPC  &ltb L_FUN DEL
+            >;
+        };
+    
+        number_layer {
+            /*
+            * ┌───────┬───────┬───────┬───────┬───────┬───────┐         ┌───────┬───────┬───────┬───────┬───────┬───────┐
+            * │  TAB  │   +   │   7   │   8   │   9   │   -   │         │ HOME  │ PG_DN │ PG_UP │  END  │   P   │   ´   │
+            * │       │       │       │       │       │       │         │       │       │       │       │       │   `   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │  ESC  │   (   │   4   │   5   │   6   │   )   │         │ LEFT  │ DOWN  │  UP   │ RIGHT │   Ç   │   ~   │
+            * │       │ LSHFT │  LALT │ LCTRL │  LGUI │       │         │       │ RGUI  │ RCTRL │ RALT  │ RSHFT │   ^   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │ LSHFT │   *   │   1   │   2   │   3   │   /   │         │ PSCRN │  INS  │  DEL  │   .   │   ;   │   /   │
+            * │       │       │       │       │       │       │         │       │       │       │   >   │   :   │   ?   │
+            * └───────┴───────┴───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┴───────┴───────┘
+            *                         │  INS  │  TAB  │ SPACE │         │  RET  │ BSPC  │  DEL  │
+            *                         │       │       │ L_SYM │         │ L_NMB │       │ L_FUN │
+            *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
+            */
+            bindings = <
+                &trans &kp BR_PLUS         &kp BR_7        &kp BR_8         &kp BR_9        &kp BR_MINUS       &kp HOME  &kp PG_DN       &kp PG_UP      &kp END          &trans    &trans
+                &trans &hrml LSHFT BR_LPAR &hrml LALT BR_4 &hrml LCTRL BR_5 &hrml LGUI BR_6 &kp BR_RPAR        &kp LEFT  &hrmr RGUI DOWN &hrmr RCTRL UP &hrmr RALT RIGHT &kp RSHFT &trans
+                &trans &kp BR_STAR         &kp BR_1        &kp BR_2         &kp BR_3        &kp BR_FSLH        &kp PSCRN &kp INS         &kp DEL        &trans           &trans    &trans
+                                                        &mthp LCTRL BR_0 &trans          &trans             &trans    &trans          &trans
+            >;
+        };
+    
+        symbol_layer {
+            /*
+            * ┌───────┬───────┬───────┬───────┬───────┬───────┐         ┌───────┬───────┬───────┬───────┬───────┬───────┐
+            * │  TAB  │   Q   │   "   │   !   │   $   │   %   │         │   @   │   &   │   *   │   '   │   P   │   ´   │
+            * │       │       │       │       │       │       │         │       │       │       │       │       │   `   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │  ESC  │   {   │   (   │   )   │   }   │   =   │         │   \   │   +   │   -   │   /   │   Ç   │   ~   │
+            * │       │ LSHFT │  LALT │ LCTRL │  LGUI │       │         │       │ RGUI  │ RCTRL │ RALT  │ RSHFT │   ^   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │ LSHFT │   Z   │   [   │   ]   │   _   │   #   │         │   |   │   M   │   ,   │   .   │   ;   │   /   │
+            * │       │       │       │       │       │       │         │       │       │   <   │   >   │   :   │   ?   │
+            * └───────┴───────┴───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┴───────┴───────┘
+            *                         │  INS  │  TAB  │ SPACE │         │  RET  │ BSPC  │  DEL  │
+            *                         │       │       │ L_SYM │         │ L_NMB │       │ L_FUN │
+            *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
+            */
+            bindings = <
+                &trans &trans              &kp BR_DQT         &kp BR_EXCL         &kp BR_DLLR         &kp BR_PRCNT       &kp BR_AT   &kp BR_AMPS        &kp BR_STAR         &kp BR_SQT          &trans    &trans
+                &trans &hrml LSHFT BR_LBRC &hrml LALT BR_LPAR &hrml LCTRL BR_RPAR &hrml LGUI BR_RBRC  &kp BR_EQUAL       &kp BR_BSLH &hrmr RGUI BR_PLUS &hrmr RCTRL BR_MINUS &hrmr RALT BR_FSLH &kp RSHFT &trans
+                &trans &trans              &kp BR_LBKT        &kp BR_RBKT         &kp BR_UNDER        &kp BR_HASH        &kp BR_PIPE &trans             &trans               &trans             &trans    &trans
+                                                              &trans              &trans              &trans             &trans      &trans             &trans
+            >;
+        };
+    
+        function_layer {
+            /*
+            * ┌───────┬───────┬───────┬───────┬───────┬───────┐         ┌───────┬───────┬───────┬───────┬───────┬───────┐
+            * │  TAB  │   Q   │   F7  │   F8  │   F9  │   F10 │         │ BT_0  │ BT_1  │ BT_2  │ BT_4  │ BT_5  │ BTCLR │
+            * │       │       │       │       │       │       │         │       │       │       │       │       │       │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │  ESC  │   {   │   F4  │   F5  │   F6  │   F11 │         │   \   │ VOL+  │ MUTE  │ VOL-  │ RSHFT │   ~   │
+            * │       │       │ LSHFT │  LALT │ LCTRL │  LGUI │         │       │ RGUI  │ RCTRL │ RALT  │       │   ^   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │ LSHFT │   Z   │   F1  │   F2  │   F3  │   F12 │         │   |   │ PREV  │ PLAY  │ NEXT  │   ;   │   /   │
+            * │       │       │       │       │       │       │         │       │       │ PAUSE │       │   :   │   ?   │
+            * └───────┴───────┴───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┴───────┴───────┘
+            *                         │  INS  │  TAB  │ SPACE │         │  RET  │ BSPC  │  DEL  │
+            *                         │       │       │ L_SYM │         │ L_NMB │       │ L_FUN │
+            *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
+            */
+            bindings = <
+                &trans &trans     &kp F7        &kp F8         &kp F9        &kp F10       &bt BT_SEL 0 &bt BT_SEL 1        &bt BT_SEL 2       &bt BT_SEL 3        &bt BT_SEL 4 &bt BT_CLR
+                &trans &kp LSHIFT &hrml LALT F4 &hrml LCTRL F5 &hrml LGUI F6 &kp F11       &trans       &hrmr RGUI C_VOL_DN &hrmr RCTRL C_MUTE &hrmr RALT C_VOL_UP &kp RSHFT    &trans
+                &trans &trans     &kp F1        &kp F2         &kp F3        &kp F12       &trans       &kp C_PREV          &kp C_PP           &kp C_NEXT          &trans       &trans
+                                                &trans         &trans        &trans        &trans       &trans              &trans
+            >;
+        };
+    };
 };
