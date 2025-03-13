@@ -27,6 +27,7 @@
 #define L_NMB 1
 #define L_SYM 2
 #define L_FUN 3
+#define L_GAM 4
 
 / {
     combos {
@@ -201,9 +202,33 @@
             */
             bindings = <
                 &trans &trans     &kp F7        &kp F8         &kp F9        &kp F10       &bt BT_SEL 0 &bt BT_SEL 1        &bt BT_SEL 2       &bt BT_SEL 3        &bt BT_SEL 4 &bt BT_CLR
-                &trans &kp LSHIFT &hrml LALT F4 &hrml LCTRL F5 &hrml LGUI F6 &kp F11       &trans       &hrmr RGUI C_VOL_DN &hrmr RCTRL C_MUTE &hrmr RALT C_VOL_UP &kp RSHFT    &trans
+                &trans &kp LSHIFT &hrml LALT F4 &hrml LCTRL F5 &hrml LGUI F6 &kp F11       &trans       &hrmr RGUI C_VOL_DN &hrmr RCTRL C_MUTE &hrmr RALT C_VOL_UP &kp RSHFT    &to L_GAM
                 &trans &trans     &kp F1        &kp F2         &kp F3        &kp F12       &trans       &kp C_PREV          &kp C_PP           &kp C_NEXT          &trans       &trans
                                                 &trans         &trans        &trans        &trans       &trans              &trans
+            >;
+        };
+
+        gaming_layer {
+            /*
+            * ┌───────┬───────┬───────┬───────┬───────┬───────┐         ┌───────┬───────┬───────┬───────┬───────┬───────┐
+            * │   4   │   Q   │   W   │   E   │   R   │   T   │         │   Y   │   U   │   I   │   O   │   P   │   ´   │
+            * │       │       │       │       │       │       │         │       │       │       │       │       │   `   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │ LCTRL │   A   │   S   │   D   │   F   │   G   │         │   H   │   J   │   K   │   L   │   Ç   │   ~   │
+            * │       │       │       │       │       │       │         │       │ RGUI  │ RCTRL │ RALT  │ RSHFT │   ^   │
+            * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
+            * │ LSHFT │   Z   │   X   │   C   │   V   │   B   │         │   N   │   M   │   ,   │   .   │   ;   │   /   │
+            * │       │       │       │       │       │       │         │       │       │   <   │   >   │   :   │   ?   │
+            * └───────┴───────┴───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┴───────┴───────┘
+            *                         │   1   │   2   │   3   │         │  RET  │ BSPC  │ SPACE │
+            *                         │       │       │       │         │ L_NMB │ L_SYM │ L_FUN │
+            *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
+            */
+            bindings = <
+                &kp BR_4  &kp BR_Q &kp BR_W &kp BR_E &kp BR_R &kp BR_T       &kp BR_Y       &kp BR_U        &kp BR_I         &kp BR_O         &kp BR_P     &kp BR_ACUTE
+                &kp LCTRL &kp BR_A &kp BR_S &kp BR_D &kp BR_F &kp BR_G       &kp BR_H       &kp BR_J        &kp BR_K         &kp BR_L         &kp BR_CEDIL &mt &to L_BSE BR_TILDE
+                &kp LSHFT &kp BR_Z &kp BR_X &kp BR_C &kp BR_V &kp BR_B       &kp BR_N       &kp BR_M        &kp BR_COMMA     &kp BR_DOT       &kp BR_SEMI  &mt LALT BR_FSLH
+                                            &kp BR_1 &kp BR_2 &kp BR_3       &ltb L_NMB RET &ltb L_SYM BSPC &ltb L_FUN SPACE
             >;
         };
     };
