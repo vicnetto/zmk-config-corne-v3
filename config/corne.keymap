@@ -200,8 +200,8 @@
             * │   ▼   │   ▼   │   F7  │   F8  │   F9  │  F10  │         │ BT_0  │ BT_1  │ BT_2  │ BT_4  │ BT_5  │ BTCLR │
             * │       │       │       │       │       │       │         │       │       │       │       │       │       │
             * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
-            * │   ▼   │ LSHFT │   F4  │   F5  │   F6  │  F11  │         │  ▼    │ VOL+  │ MUTE  │ VOL-  │ RSHFT │  ▼    │
-            * │       │       │  LALT │ LCTRL │  LGUI │       │         │       │ RGUI  │ RCTRL │ RALT  │       │       │
+            * │   ▼   │ LSHFT │   F4  │   F5  │   F6  │  F11  │         │  ▼    │ VOL+  │ MUTE  │ VOL-  │ RSHFT │ BTCTR │
+            * │       │       │  LALT │ LCTRL │  LGUI │       │         │       │ RGUI  │ RCTRL │ RALT  │       │  ALL  │
             * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
             * │   ▼   │   ▼   │   F1  │   F2  │   F3  │  F12  │         │  ▼    │ PREV  │ PLAY  │ NEXT  │  ▼    │  ▼    │
             * │       │       │       │       │       │       │         │       │       │ PAUSE │       │       │       │
@@ -212,7 +212,7 @@
             */
             bindings = <
                 &trans &trans     &kp F7        &kp F8         &kp F9        &kp F10       &bt BT_SEL 0 &bt BT_SEL 1        &bt BT_SEL 2       &bt BT_SEL 3        &bt BT_SEL 4 &bt BT_CLR
-                &trans &kp LSHIFT &hrml LALT F4 &hrml LCTRL F5 &hrml LGUI F6 &kp F11       &trans       &hrmr RGUI C_VOL_DN &hrmr RCTRL C_MUTE &hrmr RALT C_VOL_UP &kp RSHFT    &tog L_GAM
+                &trans &kp LSHIFT &hrml LALT F4 &hrml LCTRL F5 &hrml LGUI F6 &kp F11       &trans       &hrmr RGUI C_VOL_DN &hrmr RCTRL C_MUTE &hrmr RALT C_VOL_UP &kp RSHFT    &bt BT_CLR_ALL
                 &trans &trans     &kp F1        &kp F2         &kp F3        &kp F12       &trans       &kp C_PREV          &kp C_PP           &kp C_NEXT          &trans       &trans
                                                 &trans         &trans        &trans        &trans       &trans              &trans
             >;
