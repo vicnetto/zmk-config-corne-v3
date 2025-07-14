@@ -43,28 +43,24 @@
     
     behaviors {
         hrml: home_row_mods_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
             flavor = "balanced";
-            require-prior-idle-ms = <100>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <RIGHT_POSITIONS>;
             hold-trigger-on-release; // delay positional check until key release
-            bindings = <&kp>, <&kp>;
             // global-quick-tap-ms = <75>
         };
 
         hrmr: home_row_mods_right {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
             flavor = "balanced";
-            require-prior-idle-ms = <100>;
+            tapping-term-ms = <280>;
+            quick-tap-ms = <175>;
+            require-prior-idle-ms = <150>;
+            bindings = <&kp>, <&kp>;
             hold-trigger-key-positions = <LEFT_POSITIONS>;
             hold-trigger-on-release; // delay positional check until key release
-            bindings = <&kp>, <&kp>;
             // global-quick-tap-ms = <75>
         };
 
