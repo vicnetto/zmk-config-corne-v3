@@ -1,0 +1,27 @@
+layout: {qmk_keyboard: corne_rotated, layout_name: LAYOUT_split_3x6_3}
+layers:
+  default:
+  - [TAB, Q, W, E, R, T, Y, U, I, O, P, {t: "´", h: "`"}]
+  - [ESC, {t: A, h: LSHFT}, {t: S, h: LALT}, {t: D, h: LCTRL}, {t: F, h: LGUI}, G, H, {t: J, h: RGUI}, {t: K, h: RCTRL}, {t: L, h: LALT}, {t: Ç, h: RSHFT}, {t: "~", h: "^"}]
+  - [LSHFT, Z, X, C, V, B, N, M, {t: ",", h: "<"}, {t: ".", h: ">"}, {t: ";", h: ":"}, {t: "/ ?", h: RALT}]
+  - [INS, {t: TAB, h: number}, {t: SPACE, h: symbol}, {t: RET, h: number}, {t: BSPC, h: LSHFT}, {t: DEL, h: function}]
+  number:
+  - [{t: ▽, type: trans}, "+", 7, 8, 9, "-", HOME, PG DN, PG UP, END, PSCRN, {t: ▽, type: trans}]
+  - [{t: ▽, type: trans}, {t: "(", h: LSHFT}, {t: 4, h: LALT}, {t: 5, h: LCTRL}, {t: 6, h: LGUI}, ")", LEFT, {t: DOWN, h: RGUI}, {t: UP, h: RCTRL}, {t: RIGHT, h: LALT}, RSHFT, {t: ▽, type: trans}]
+  - [{t: ▽, type: trans}, "*", 1, 2, 3, "/", MSE_L, MSE_D, MSE_U, MSE_R, {t: ▽, type: trans}, {t: ▽, type: trans}]
+  - [0, {type: held}, {t: ▽, type: trans}, {type: held}, {t: ▽, type: trans}, {t: ▽, type: trans}]
+  symbol:
+  - [{t: ▽, type: trans}, {t: ▽, type: trans}, "\"", "!", "$", "%", "@", "&", "*", "'", {t: ▽, type: trans}, {t: ▽, type: trans}]
+  - [{t: ▽, type: trans}, {t: "{", h: LSHFT}, {t: "(", h: LALT}, {t: ")", h: LCTRL}, {t: "}", h: LGUI}, "=", "\\", {t: "+", h: RGUI}, {t: "-", h: RCTRL}, {t: "/", h: LALT}, RSHFT, {t: ▽, type: trans}]
+  - [{t: ▽, type: trans}, {t: ▽, type: trans}, "[", "]", "_", "#", "|", {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}]
+  - [{t: ▽, type: trans}, {t: ▽, type: trans}, {type: held}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}]
+  function:
+  - [{t: ▽, type: trans}, {t: ▽, type: trans}, F7, F8, F9, F10, BT 1, BT 2, BT 3, BT 4, BT 5, BT CLR]
+  - [{t: ▽, type: trans}, {t: ▽, type: trans}, {t: F4, h: LALT}, {t: F5, h: LCTRL}, {t: F6, h: LGUI}, F11, {t: ▽, type: trans}, {t: VOL DOWN, h: RGUI}, {t: (UN)MUTE, h: RCTRL}, {t: VOL UP, h: RALT}, {t: ▽, type: trans}, BT CLR ALL]
+  - [{t: ▽, type: trans}, {t: ▽, type: trans}, F1, F2, F3, F12, {t: ▽, type: trans}, PREV, PLAY STOP, NEXT, {t: to, h: gaming}, {t: ▽, type: trans}]
+  - [{t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {type: held}]
+  gaming:
+  - [4, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}]
+  - [LCTRL, A, S, D, F, {t: ▽, type: trans}, {t: ▽, type: trans}, J, K, L, Ç, {t: ▽, type: trans}]
+  - [{t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}]
+  - [1, 2, 3, {t: RET, h: number}, {t: BSPC, h: symbol}, {t: SPACE, h: function}]
