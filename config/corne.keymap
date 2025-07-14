@@ -68,24 +68,17 @@
             // global-quick-tap-ms = <75>
         };
 
-        mtb: mod_tap_balanced {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+        &mt {
+            flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <120>;
-            // require-prior-idle-ms = <125>;
-            flavor = "balanced";
-            bindings = <&kp>, <&kp>;
         };
 
-        ltb: layer_tap_balanced {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
+        &lt {
+            flavor = "balanced";
             tapping-term-ms = <200>;
             quick-tap-ms = <120>;
             require-prior-idle-ms = <50>;
-            flavor = "balanced";
-            bindings = <&mo>, <&kp>;
         };
 
         lttp: layer_toggle_tap_preferred {
@@ -123,7 +116,7 @@
                 &kp TAB   &kp BR_Q         &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T               &kp BR_Y       &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P             &kp BR_ACUTE
                 &kp ESC   &hrml LSHFT BR_A &hrml LALT BR_S &hrml LCTRL BR_D &hrml LGUI BR_F &kp BR_G               &kp BR_H       &hrmr RGUI BR_J  &hrmr RCTRL BR_K &hrmr RALT BR_L &hrmr RSHFT BR_CEDIL &kp BR_TILDE
                 &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B               &kp BR_N       &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI          &mt RALT BR_FSLH
-                                                           &kp INS          &ltb L_NMB TAB  &ltb L_SYM SPACE       &ltb L_NMB RET &mtb LSHFT BSPC  &ltb L_FUN DEL
+                                                           &kp INS          &lt L_NMB TAB   &lt L_SYM SPACE        &lt L_NMB RET  &mt LSHFT BSPC   &lt L_FUN DEL
             >;
         };
     
@@ -219,7 +212,7 @@
                 &kp BR_4  &kp BR_Q &kp BR_W &kp BR_E &kp BR_R &kp BR_T       &kp BR_Y       &kp BR_U        &kp BR_I         &kp BR_O         &kp BR_P     &kp BR_ACUTE
                 &kp LCTRL &kp BR_A &kp BR_S &kp BR_D &kp BR_F &kp BR_G       &kp BR_H       &kp BR_J        &kp BR_K         &kp BR_L         &kp BR_CEDIL &lttp L_GAM BR_TILDE
                 &kp LSHFT &kp BR_Z &kp BR_X &kp BR_C &kp BR_V &kp BR_B       &kp BR_N       &kp BR_M        &kp BR_COMMA     &kp BR_DOT       &kp BR_SEMI  &mt LALT BR_FSLH
-                                            &kp BR_1 &kp BR_2 &kp BR_3       &ltb L_NMB RET &ltb L_SYM BSPC &ltb L_FUN SPACE
+                                            &kp BR_1 &kp BR_2 &kp BR_3       &lt L_NMB RET  &lt L_SYM BSPC  &lt L_FUN SPACE
             >;
         };
     };
