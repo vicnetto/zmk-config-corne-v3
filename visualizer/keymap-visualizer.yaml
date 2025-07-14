@@ -24,4 +24,4 @@ layers:
   - [4, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}]
   - [LCTRL, A, S, D, F, {t: ▽, type: trans}, {t: ▽, type: trans}, J, K, L, Ç, {t: ▽, type: trans}]
   - [{t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}]
-  - [1, 2, 3, {t: RET, h: number}, {t: BSPC, h: symbol}, {t: SPACE, h: function}]
+  - [3, 2, 1, {t: RET, h: number}, {t: BSPC, h: symbol}, {t: SPACE, h: function}]
