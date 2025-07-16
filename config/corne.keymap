@@ -45,8 +45,8 @@
         hrml: home_row_mods_left {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <120>;
             require-prior-idle-ms = <90>;
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -58,8 +58,8 @@
         hrmr: home_row_mods_right {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <280>;
-            quick-tap-ms = <175>;
+            tapping-term-ms = <150>;
+            quick-tap-ms = <120>;
             require-prior-idle-ms = <90>;
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -72,7 +72,7 @@
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <90>;
             // require-prior-idle-ms = <125>;
             bindings = <&kp>, <&kp>;
@@ -82,7 +82,7 @@
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
             #binding-cells = <2>;
-            tapping-term-ms = <200>;
+            tapping-term-ms = <150>;
             quick-tap-ms = <90>;
             require-prior-idle-ms = <50>;
             bindings = <&mo>, <&kp>;
