@@ -42,6 +42,15 @@
         };
     };
     
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+
+        fun_layer {
+            if-layers = <L_NMB L_SYM>;
+            then-layer = <L_FUN>;
+        };
+    };
+
     behaviors {
         hrml: home_row_mods_left {
             compatible = "zmk,behavior-hold-tap";
@@ -87,6 +96,16 @@
             bindings = <&mo>, <&kp>;
         };
 
+        ltt: layer_tap_thumb {
+            compatible = "zmk,behavior-hold-tap";
+            flavor = "balanced";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            // shorter than ltb's 175 so "space, then hold space for a symbol" still works
+            quick-tap-ms = <125>;
+            bindings = <&mo>, <&kp>;
+        };
+
         mttp: mod_tap_tap_preferred {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -123,23 +142,25 @@
             * │ LSHFT │   Z   │   X   │   C   │   V   │   B   │         │   N   │   M   │   ,   │   .   │   ;   │ / | ? │
             * │       │       │       │       │       │       │         │       │       │   <   │   >   │   :   │ RALT  │
             * └───────┴───────┴───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┴───────┴───────┘
-            *                         │  INS  │  TAB  │ SPACE │         │  RET  │ BSPC  │  DEL  │
-            *                         │       │ L_NMB │ L_SYM │         │ L_NMB │ LSHFT │ L_FUN │
+            *                         │  DEL  │  TAB  │ SPACE │         │  RET  │ BSPC  │ LSHFT │
+            *                         │       │ L_NMB │ L_SYM │         │ L_NMB │       │       │
             *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
+            *                                             └─────────────────┘
+            *                                                    L_FUN
             */
     
             bindings = <
                 &kp TAB   &kp BR_Q         &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T               &kp BR_Y       &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P             &kp BR_ACUTE
                 &kp ESC   &hrml LSHFT BR_A &hrml LALT BR_S &hrml LCTRL BR_D &hrml LGUI BR_F &kp BR_G               &kp BR_H       &hrmr RGUI BR_J  &hrmr RCTRL BR_K &hrmr LALT BR_L &hrmr RSHFT BR_CEDIL &kp BR_TILDE
                 &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B               &kp BR_N       &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI          &mtb RALT BR_FSLH
-                                                           &kp INS          &ltb L_NMB TAB   &ltb L_SYM SPACE        &ltb L_NMB RET  &mtb LSHFT BSPC   &ltb L_FUN DEL
+                                                           &kp DEL          &ltt L_NMB TAB   &ltt L_SYM SPACE      &ltt L_NMB RET &kp BSPC   &kp LSHFT
             >;
         };
     
         number_layer {
             /*
             * ┌───────┬───────┬───────┬───────┬───────┬───────┐         ┌───────┬───────┬───────┬───────┬───────┬───────┐
-            * │   ▼   │   +   │   7   │   8   │   9   │   -   │         │ HOME  │ PG_DN │ PG_UP │  END  │  ▼    │  ▼    │
+            * │   ▼   │   +   │   7   │   8   │   9   │   -   │         │ HOME  │ PG_DN │ PG_UP │  END  │ PSCRN │  INS  │
             * │       │       │       │       │       │       │         │       │       │       │       │       │       │
             * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
             * │   ▼   │   (   │   4   │   5   │   6   │   )   │         │ LEFT  │ DOWN  │  UP   │ RIGHT │  ▼    │  ▼    │
@@ -153,7 +174,7 @@
             *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
             */
             bindings = <
-                &trans &kp BR_PLUS         &kp BR_7        &kp BR_8         &kp BR_9        &kp BR_MINUS       &kp HOME        &kp PG_DN       &kp PG_UP      &kp END          &kp PSCRN &trans
+                &trans &kp BR_PLUS         &kp BR_7        &kp BR_8         &kp BR_9        &kp BR_MINUS       &kp HOME        &kp PG_DN       &kp PG_UP      &kp END          &kp PSCRN &kp INS
                 &trans &hrml LSHFT BR_LPAR &hrml LALT BR_4 &hrml LCTRL BR_5 &hrml LGUI BR_6 &kp BR_RPAR        &kp LEFT        &hrmr RGUI DOWN &hrmr RCTRL UP &hrmr LALT RIGHT &kp RSHFT &trans
                 &trans &kp BR_STAR         &kp BR_1        &kp BR_2         &kp BR_3        &kp BR_FSLH        &mmv MOVE_LEFT  &mmv MOVE_DOWN  &mmv MOVE_UP   &mmv MOVE_RIGHT  &trans    &trans
                                                            &kp BR_0         &trans          &trans             &trans          &trans          &trans
@@ -166,10 +187,10 @@
             * │   ▼   │   ▼   │   "   │   !   │   $   │   %   │         │   @   │   &   │   *   │   '   │  ▼    │  ▼    │
             * │       │       │       │       │       │       │         │       │       │       │       │       │       │
             * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
-            * │   ▼   │   {   │   (   │   )   │   }   │   =   │         │   \   │   +   │   -   │   /   │  ▼    │  ▼    │
-            * │       │ LSHFT │  LALT │ LCTRL │  LGUI │       │         │       │ RGUI  │ RCTRL │ LALT  │       │       │
+            * │   ▼   │   {   │   (   │   )   │   }   │   =   │         │   \   │   +   │   -   │   /   │   ?   │  ▼    │
+            * │       │ LSHFT │  LALT │ LCTRL │  LGUI │       │         │       │ RGUI  │ RCTRL │ LALT  │ RSHFT │       │
             * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
-            * │   ▼   │   ▼   │   [   │   ]   │   _   │   #   │         │   |   │  ▼    │  ▼    │  ▼    │  ▼    │  ▼    │
+            * │   ▼   │   ▼   │   [   │   ]   │   _   │   #   │         │   |   │   ;   │   :   │  ▼    │  ▼    │  ▼    │
             * │       │       │       │       │       │       │         │       │       │       │       │       │       │
             * └───────┴───────┴───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┴───────┴───────┘
             *                         │   ▼   │   ▼   │   ▼   │         │  ▼    │  ▼    │  ▼    │
@@ -177,9 +198,9 @@
             *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
             */
             bindings = <
-                &trans &trans              &kp BR_DQT         &kp BR_EXCL         &kp BR_DLLR         &kp BR_PRCNT       &kp BR_AT   &kp BR_AMPS        &kp BR_STAR         &kp BR_SQT          &trans    &trans
-                &trans &hrml LSHFT BR_LBRC &hrml LALT BR_LPAR &hrml LCTRL BR_RPAR &hrml LGUI BR_RBRC  &kp BR_EQUAL       &kp BR_BSLH &hrmr RGUI BR_PLUS &hrmr RCTRL BR_MINUS &hrmr LALT BR_FSLH &kp RSHFT &trans
-                &trans &trans              &kp BR_LBKT        &kp BR_RBKT         &kp BR_UNDER        &kp BR_HASH        &kp BR_PIPE &trans             &trans               &trans             &trans    &trans
+                &trans &trans              &kp BR_DQT         &kp BR_EXCL         &kp BR_DLLR         &kp BR_PRCNT       &kp BR_AT   &kp BR_AMPS        &kp BR_STAR          &kp BR_SQT         &trans               &trans
+                &trans &hrml LSHFT BR_LBRC &hrml LALT BR_LPAR &hrml LCTRL BR_RPAR &hrml LGUI BR_RBRC  &kp BR_EQUAL       &kp BR_BSLH &hrmr RGUI BR_PLUS &hrmr RCTRL BR_MINUS &hrmr LALT BR_FSLH &hrmr RSHFT BR_QMARK &trans
+                &trans &trans              &kp BR_LBKT        &kp BR_RBKT         &kp BR_UNDER        &kp BR_HASH        &kp BR_PIPE &kp BR_SEMI        &kp BR_COLON         &trans             &trans               &trans
                                                               &trans              &trans              &trans             &trans      &trans             &trans
             >;
         };
