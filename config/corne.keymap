@@ -42,15 +42,6 @@
         };
     };
     
-    conditional_layers {
-        compatible = "zmk,conditional-layers";
-
-        fun_layer {
-            if-layers = <L_NMB L_SYM>;
-            then-layer = <L_FUN>;
-        };
-    };
-
     behaviors {
         hrml: home_row_mods_left {
             compatible = "zmk,behavior-hold-tap";
@@ -92,17 +83,7 @@
             flavor = "balanced";
             #binding-cells = <2>;
             tapping-term-ms = <200>;
-            quick-tap-ms = <175>;
-            bindings = <&mo>, <&kp>;
-        };
-
-        ltt: layer_tap_thumb {
-            compatible = "zmk,behavior-hold-tap";
-            flavor = "balanced";
-            #binding-cells = <2>;
-            tapping-term-ms = <200>;
-            // shorter than ltb's 175 so "space, then hold space for a symbol" still works
-            quick-tap-ms = <125>;
+            quick-tap-ms = <140>; // low enough for "space, then hold space for a symbol"
             bindings = <&mo>, <&kp>;
         };
 
@@ -139,21 +120,19 @@
             * │  ESC  │   A   │   S   │   D   │   F   │   G   │         │   H   │   J   │   K   │   L   │   Ç   │   ~   │
             * │       │ LSHFT │  LALT │ LCTRL │  LGUI │       │         │       │ RGUI  │ RCTRL │ LALT  │ RSHFT │   ^   │
             * ├───────┼───────┼───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┼───────┼───────┤
-            * │ LSHFT │   Z   │   X   │   C   │   V   │   B   │         │   N   │   M   │   ,   │   .   │   ;   │ / | ? │
-            * │       │       │       │       │       │       │         │       │       │   <   │   >   │   :   │ RALT  │
+            * │ LSHFT │   Z   │   X   │   C   │   V   │   B   │         │   N   │   M   │   ,   │   .   │   :   │   ;   │
+            * │       │       │       │       │       │       │         │       │       │   <   │   >   │       │ RALT  │
             * └───────┴───────┴───────┼───────┼───────┼───────┤         ├───────┼───────┼───────┼───────┴───────┴───────┘
-            *                         │  DEL  │  TAB  │ SPACE │         │  RET  │ BSPC  │ LSHFT │
-            *                         │       │ L_NMB │ L_SYM │         │ L_NMB │       │       │
+            *                         │   /   │  TAB  │ SPACE │         │  RET  │ BSPC  │  DEL  │
+            *                         │   ?   │ L_NMB │ L_SYM │         │ L_NMB │ LSHFT │ L_FUN │
             *                         └───────┴───────┴───────┘         └───────┴───────┴───────┘
-            *                                             └─────────────────┘
-            *                                                    L_FUN
             */
     
             bindings = <
                 &kp TAB   &kp BR_Q         &kp BR_W        &kp BR_E         &kp BR_R        &kp BR_T               &kp BR_Y       &kp BR_U         &kp BR_I         &kp BR_O        &kp BR_P             &kp BR_ACUTE
                 &kp ESC   &hrml LSHFT BR_A &hrml LALT BR_S &hrml LCTRL BR_D &hrml LGUI BR_F &kp BR_G               &kp BR_H       &hrmr RGUI BR_J  &hrmr RCTRL BR_K &hrmr LALT BR_L &hrmr RSHFT BR_CEDIL &kp BR_TILDE
-                &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B               &kp BR_N       &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_SEMI          &mtb RALT BR_FSLH
-                                                           &kp DEL          &ltt L_NMB TAB   &ltt L_SYM SPACE      &ltt L_NMB RET &kp BSPC   &kp LSHFT
+                &kp LSHFT &kp BR_Z         &kp BR_X        &kp BR_C         &kp BR_V        &kp BR_B               &kp BR_N       &kp BR_M         &kp BR_COMMA     &kp BR_DOT      &kp BR_COLON         &mtb RALT BR_SEMI
+                                                           &kp BR_FSLH      &ltb L_NMB TAB  &ltb L_SYM SPACE       &ltb L_NMB RET &mtb LSHFT BSPC  &ltb L_FUN DEL
             >;
         };
     
