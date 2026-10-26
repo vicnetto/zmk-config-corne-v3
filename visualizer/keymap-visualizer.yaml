@@ -25,3 +25,8 @@ layers:
   - [LSHFT, A, S, D, F, {t: ▽, type: trans}, {t: ▽, type: trans}, J, K, L, Ç, {t: "~", h: tog gaming}]
   - [LCTRL, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, {t: ▽, type: trans}, ";", {t: "/", h: LALT}]
   - [3, 2, 1, {t: RET, h: number}, {t: BSPC, h: symbol}, {t: SPACE, h: function}]
+combos:
+  - {p: [13, 22], k: CAPS WORD, l: [default]}
+  - {p: [26, 27], k: COPY, l: [default]}
+  - {p: [27, 28], k: PASTE, l: [default]}
+  - {p: [26, 28], k: CUT, l: [default]}
